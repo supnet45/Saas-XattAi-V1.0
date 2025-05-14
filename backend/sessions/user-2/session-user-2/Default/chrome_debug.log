@@ -1,0 +1,65 @@
+[0506/025338.684:ERROR:simple_index_file.cc(296)] Could not create a directory to hold the index file
+[0506/025338.956:INFO:CONSOLE(157)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yt/r/EXq3DhEcNF9.js (157)
+[0506/025339.226:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
+[0506/025339.226:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ch-save-data'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'ch-viewport-height'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'gamepad'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'local-fonts'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'.", source:  (0)
+[0506/025339.233:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
+[0506/025339.234:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
+[0506/025339.234:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
+[0506/025339.234:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0506/025341.902:ERROR:simple_index_file.cc(296)] Could not create a directory to hold the index file
+[0506/025354.012:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0506/025356.062:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acceso denegado. (0x5)
+[0506/025356.062:ERROR:cache_util.cc(146)] Unable to move cache folder C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\Cache\Cache_Data to C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\Cache\old_Cache_Data_000
+[0506/025356.062:ERROR:disk_cache.cc(192)] Unable to create cache
+[0506/025356.456:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ch-save-data'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'ch-viewport-height'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'gamepad'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'local-fonts'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
+[0506/025356.457:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0506/025356.905:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acceso denegado. (0x5)
+[0506/025356.905:ERROR:cache_util.cc(146)] Unable to move cache folder C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\Cache\Cache_Data to C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\Cache\old_Cache_Data_000
+[0506/025356.905:ERROR:disk_cache.cc(192)] Unable to create cache
+[0506/025357.059:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0506/025357.223:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acceso denegado. (0x5)
+[0506/025357.223:ERROR:cache_util.cc(146)] Unable to move cache folder C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\GPUCache to C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\old_GPUCache_000
+[0506/025357.223:ERROR:disk_cache.cc(192)] Unable to create cache
+[0506/025357.223:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ch-save-data'.", source:  (0)
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'ch-viewport-height'.", source:  (0)
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
+[0506/025357.316:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'gamepad'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'local-fonts'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
+[0506/025357.317:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0506/025357.903:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0506/025402.140:ERROR:simple_index_file.cc(296)] Could not create a directory to hold the index file
+[0506/025403.965:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb,IO error: C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0506/025406.068:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb,IO error: C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0506/025408.489:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb,IO error: C:\Users\victo\OneDrive\Escritorio\Clientes\Xatt-Ai-Saas-2.0\Otros Proyectos\saas-xattai\backend\sessions\user-2\session-user-2\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)

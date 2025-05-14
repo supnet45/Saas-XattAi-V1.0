@@ -1,0 +1,116 @@
+\dashboard.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrativo | XattAI</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Configuración de Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <nav class="bg-primary-800 text-white px-4 py-2.5 fixed left-0 right-0 top-0 z-50">
+    <div class="flex flex-wrap justify-between items-center">
+      <div class="flex items-center">
+        <a href="#" class="flex items-center">
+          <span class="self-center text-xl font-semibold whitespace-nowrap">XattAI Admin</span>
+        </a>
+      </div>
+      <div class="flex items-center">
+        <button id="userDropdown" class="flex items-center text-sm font-medium text-white hover:text-primary-200">
+          <span id="userName">Administrador</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-16 px-4 sm:px-6 md:px-8 pb-8">
+    <div class="max-w-7xl mx-auto mt-8">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-primary-800 mb-4">Panel Administrativo</h1>
+        <p class="text-gray-600 mb-6">¡Bienvenido al panel de administrador de XattAI!</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h2 class="text-lg font-medium text-primary-700 mb-2">Usuarios</h2>
+            <p>Administración de usuarios y permisos.</p>
+          </div>
+          
+          <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h2 class="text-lg font-medium text-primary-700 mb-2">Configuración</h2>
+            <p>Configuración del sistema y parámetros.</p>
+          </div>
+          
+          <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h2 class="text-lg font-medium text-primary-700 mb-2">Estadísticas</h2>
+            <p>Métricas y reportes del sistema.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Inicializar íconos
+    lucide.createIcons();
+    
+    // Verificar autenticación
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('authToken');
+      const userName = localStorage.getItem('userName');
+      
+      if (!token) {
+        window.location.href = '/panel.html';
+        return;
+      }
+      
+      // Mostrar nombre de usuario si está disponible
+      if (userName) {
+        document.getElementById('userName').textContent = userName;
+      }
+    });
+  </script>
+</body>
+</html>

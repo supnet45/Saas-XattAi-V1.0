@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard XattAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="flex h-screen overflow-hidden">
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 fixed top-0 left-0 h-full z-30 shadow-lg">
+            <div class="p-4 border-b">
+                <div class="flex items-center">
+                    <img src="/logo.png" alt="XattAI Logo" class="h-8 mr-2">
+                    <h1 class="text-xl font-bold text-gray-800">XattAI</h1>
+                </div>
+            </div>
+            <nav class="p-4">
+                <div class="mb-3 text-xs font-semibold text-gray-500">GENERAL</div>
+                <ul>
+                    <li class="mb-1">
+                        <a href="#" class="sidebar-link active flex items-center p-2 text-gray-800 rounded hover:bg-gray-100" data-target="dashboard-card">
+                            <i data-lucide="layout-dashboard" class="h-5 w-5 mr-2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="#" class="sidebar-link flex items-center p-2 text-gray-800 rounded hover:bg-gray-100" data-target="conexiones-card">
+                            <i data-lucide="link" class="h-5 w-5 mr-2"></i>
+                            <span>Conexiones</span>
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="#" class="sidebar-link flex items-center p-2 text-gray-800 rounded hover:bg-gray-100" data-target="chat-card">
+                            <i data-lucide="message-circle" class="h-5 w-5 mr-2"></i>
+                            <span>Chat</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-gray-200">
+                    <button id="logout-button-sidebar" class="flex items-center p-2 text-red-500 rounded hover:bg-red-50 w-full">
+                        <i data-lucide="log-out" class="h-5 w-5 mr-2"></i>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content-area" class="ml-64 flex-1 overflow-y-auto p-6 bg-[#F8FAFC]">
+            <div id="dashboard-content" class="hidden">
+                <header class="mb-6">
+                    <h1 id="user-greeting" class="text-2xl font-bold text-gray-900">Hey, Usuario</h1>
+                    <p id="current-date" class="text-sm text-gray-600">Cargando fecha...</p>
+                </header>
+
+                <div id="dashboard-card" class="content-section">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Dashboard</h3>
+                        <p class="text-gray-600">Bienvenido a tu panel de control. Usa el menú lateral para navegar.</p>
+                    </div>
+                </div>
+
+                <div id="conexiones-card" class="content-section hidden">
+                    <!-- La sección de WhatsApp se llenará desde JavaScript -->
+                </div>
+
+                <div id="chat-card" class="content-section hidden">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Chat de WhatsApp</h3>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Lista de chats -->
+                            <div class="lg:col-span-1 border-r border-gray-200">
+                                <div class="mb-4">
+                                    <input type="text" 
+                                           id="search-chat" 
+                                           placeholder="Buscar chat..." 
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div id="chat-list" class="space-y-2 max-h-[600px] overflow-y-auto">
+                                    <!-- Los chats se cargarán dinámicamente aquí -->
+                                </div>
+                            </div>
+
+                            <!-- Área de chat -->
+                            <div class="lg:col-span-2">
+                                <div id="chat-area" class="h-[600px] flex flex-col">
+                                    <!-- Header del chat -->
+                                    <div id="chat-header" class="p-4 border-b border-gray-200 flex items-center">
+                                        <div id="chat-contact" class="flex-1">
+                                            <p class="text-lg font-semibold">Selecciona un chat</p>
+                                            <p class="text-sm text-gray-500" id="chat-status">No hay chat activo</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mensajes -->
+                                    <div id="messages-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+                                        <div class="flex justify-center">
+                                            <p class="text-gray-500 text-sm">Selecciona un chat para comenzar</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Input de mensaje -->
+                                    <div id="message-input" class="p-4 border-t border-gray-200">
+                                        <div class="flex space-x-2">
+                                            <input type="text" 
+                                                   id="message-text" 
+                                                   placeholder="Escribe un mensaje..." 
+                                                   class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                   disabled>
+                                            <button id="send-message" 
+                                                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+                                                    disabled>
+                                                <i data-lucide="send" class="h-5 w-5"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="connection-status-card" class="hidden fixed bottom-4 right-4 bg-white rounded-lg border border-gray-200 p-4 shadow-lg w-72 z-20">
+                <h4 class="text-md font-medium text-gray-700 mb-2">Estado de WhatsApp</h4>
+                <div class="flex items-center mb-1">
+                    <div id="connection-indicator" class="h-3 w-3 rounded-full bg-gray-300 mr-2"></div>
+                    <span id="connection-state" class="text-sm">Desconectado</span>
+                </div>
+                <div class="text-xs text-gray-500">
+                    <div class="mb-1">Teléfono: <span id="connected-phone">N/A</span></div>
+                    <div>Conectado desde: <span id="connected-since">N/A</span></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js" defer></script>
+</body>
+</html>

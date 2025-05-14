@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de QR WhatsApp - XattAI</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  >
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+  <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-6">
+        <h1 class="text-xl font-semibold text-gray-800">
+          Prueba de QR para WhatsApp
+        </h1>
+        <div class="flex items-center text-sm text-gray-500">
+          <span id="userName" class="mr-2">-</span>
+          <button id="logoutBtn" class="text-red-500 hover:text-red-700">
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+
+      <!-- Estado de la conexión -->
+      <div class="mb-4 p-3 bg-gray-50 rounded-md">
+        <div class="flex items-center">
+          <div
+            id="connectionIndicator"
+            class="w-3 h-3 rounded-full bg-gray-300 mr-2"
+          ></div>
+          <span id="connectionState">Desconectado</span>
+        </div>
+      </div>
+
+      <!-- Contenedor de QR -->
+      <div
+        class="relative flex flex-col items-center justify-center p-4 border border-gray-200 rounded-md bg-gray-50 h-64"
+      >
+        <!-- Placeholder cuando no hay QR -->
+        <div id="qrPlaceholder" class="text-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mx-auto h-12 w-12 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+            />
+          </svg>
+          <p class="mt-2 text-sm text-gray-500">
+            Haz clic en "Iniciar Conexión" para generar un código QR
+          </p>
+        </div>
+
+        <!-- Imagen QR -->
+        <img
+          id="qrCode"
+          class="hidden w-64 h-64 object-contain rounded-md shadow-sm"
+          alt="Código QR de WhatsApp"
+        />
+
+        <!-- Indicador de carga -->
+        <div id="whatsappLoading" class="hidden text-center">
+          <div
+            class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"
+          ></div>
+          <p class="mt-2 text-sm text-blue-500">Generando código QR...</p>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div id="whatsappError" class="hidden text-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mx-auto h-12 w-12 text-red-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <p id="errorMessage" class="mt-2 text-sm text-red-500">
+            Error al conectar con WhatsApp
+          </p>
+        </div>
+
+        <!-- Conexión exitosa -->
+        <div id="whatsappConnected" class="hidden text-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mx-auto h-12 w-12 text-green-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <p class="mt-2 text-sm text-green-500">
+            WhatsApp conectado: <span id="whatsappPhone">-</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Mensaje de estado -->
+      <div
+        id="whatsappStatus"
+        class="mt-4 p-3 rounded-md bg-blue-50 border border-blue-200 text-sm text-blue-700 text-center hidden"
+      >
+        <span id="statusMessage">Esperando...</span>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="mt-6 flex space-x-3">
+        <button
+          id="connectWhatsappBtn"
+          class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md transition"
+        >
+          Iniciar Conexión
+        </button>
+        <button
+          id="disconnectWhatsappBtn"
+          class="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition hidden"
+        >
+          Desconectar
+        </button>
+      </div>
+
+      <!-- Info de depuración -->
+      <div class="mt-4 text-xs text-gray-500">
+        <div class="flex justify-between">
+          <div>
+            <p>Socket ID: <span id="socketId">-</span></p>
+            <p>Estado: <span id="debugState">-</span></p>
+          </div>
+          <div>
+            <p>Última acción: <span id="lastAction">-</span></p>
+            <p>Hora: <span id="lastActionTime">-</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Link para volver al dashboard normal -->
+      <div class="mt-6 text-center text-sm">
+        <a href="../user/dashboard.html" class="text-blue-500 hover:underline">
+          Volver al Dashboard Normal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Verificar autenticación al cargar la página
+    const token = localStorage.getItem('token');
+    if (!token) {
+        // Redirigir a la página principal de login
+        window.location.href = '/panel.html';
+    }
+  </script>
+  <script src="whatsapp-test.js"></script>
+</body>
+</html>
+``` 
